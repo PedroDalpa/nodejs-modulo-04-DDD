@@ -1,25 +1,27 @@
-import { randomUUID } from 'crypto'
 import { Slug } from '../value-object/slug'
+import { Entity } from '../../core/entities/base'
+import { Optional } from '../../core/types/optional'
 
 type QuestionProps = {
-  title: string
-  slug: Slug
-  context: string
   authorId: string
+  bestAnswerId?: string
+  title: string
+  context: string
+  slug: Slug
+  createdAt: Date
+  updatedAt?: Date
 }
 
-export class Question {
-  public id: string
-  public title: string
-  public slug: Slug
-  public context: string
-  public authorId: string
+export class Question extends Entity<QuestionProps> {
+  static create(props: Optional<QuestionProps, 'createdAt'>, id?: string) {
+    const question = new Question(
+      {
+        ...props,
+        createdAt: new Date(),
+      },
+      id,
+    )
 
-  constructor(props: QuestionProps, id?: string) {
-    this.id = id ?? randomUUID()
-    this.context = props.context
-    this.authorId = props.authorId
-    this.title = props.title
-    this.slug = props.slug
+    return question
   }
 }
