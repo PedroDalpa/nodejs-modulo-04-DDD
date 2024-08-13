@@ -1,5 +1,5 @@
 import { Answer } from '../entities/answer'
-import { AnswerRepositoryInterface } from '../interfaces/repositories/aswers-repository'
+import { AnswerRepositoryInterface } from '../interfaces/repositories/answers-repository'
 
 type AnswerQuestionProps = {
   instructorId: string
@@ -7,13 +7,13 @@ type AnswerQuestionProps = {
   context: string
 }
 
-export class AnswerQuestion {
+export class AnswerQuestionUseCase {
   constructor(private answerRepository: AnswerRepositoryInterface) {}
   async execute({ context, instructorId, questionId }: AnswerQuestionProps) {
-    const answer = new Answer({
+    const answer = Answer.create({
+      authorId: instructorId,
       context,
       questionId,
-      authorId: instructorId,
     })
 
     await this.answerRepository.create(answer)
