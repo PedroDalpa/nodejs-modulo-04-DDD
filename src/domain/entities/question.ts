@@ -13,6 +13,10 @@ type QuestionProps = {
 }
 
 export class Question extends Entity<QuestionProps> {
+  get slug() {
+    return this.props.slug.value
+  }
+
   static create(props: Optional<QuestionProps, 'createdAt'>, id?: string) {
     const question = new Question(
       {
