@@ -17,6 +17,10 @@ export class Question extends Entity<QuestionProps> {
     return this.props.slug.value
   }
 
+  get authorId() {
+    return this.props.authorId
+  }
+
   static create(props: Optional<QuestionProps, 'createdAt'>, id?: string) {
     const question = new Question(
       {

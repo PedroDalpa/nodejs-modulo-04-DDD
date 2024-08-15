@@ -12,4 +12,14 @@ export class InMemoryQuestionRepository implements QuestionRepositoryInterface {
   async findBySlug(slug: string) {
     return this.questions.find((question) => question.slug === slug) ?? null
   }
+
+  async findById(id: string): Promise<Question | null> {
+    return this.questions.find((question) => question.id === id) ?? null
+  }
+
+  async deleteById(id: string): Promise<void> {
+    const index = this.questions.findIndex((question) => question.id === id)
+
+    this.questions.splice(index, 1)
+  }
 }
