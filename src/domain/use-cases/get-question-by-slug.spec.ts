@@ -3,6 +3,7 @@ import { GetQuestionBySlugUseCase } from './get-question-by-slug'
 import { InMemoryQuestionRepository } from './test/repositories/InMemoryQuestion'
 import { Question } from '../entities/question'
 import { Slug } from '../value-object/slug'
+import { makeQuestion } from './test/factories/make-question'
 
 let getQuestionBySlugUseCase: GetQuestionBySlugUseCase
 let inMemoryQuestionRepository: InMemoryQuestionRepository
@@ -15,11 +16,8 @@ describe('Get question by slug use case', () => {
   })
 
   it('should be able to return slug by slug', async () => {
-    const questionToCreate = Question.create({
-      authorId: '134',
-      context: 'test context',
+    const questionToCreate = makeQuestion({
       slug: new Slug('example-question-title'),
-      title: 'Example question title',
     })
 
     inMemoryQuestionRepository.questions.push(questionToCreate)
