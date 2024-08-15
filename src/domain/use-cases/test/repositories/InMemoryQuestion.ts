@@ -8,4 +8,8 @@ export class InMemoryQuestionRepository implements QuestionRepositoryInterface {
 
     return question
   }
+
+  async findBySlug(slug: string) {
+    return this.questions.find((question) => question.slug === slug) ?? null
+  }
 }
