@@ -1,7 +1,7 @@
 import { Entity } from '../../core/entities/base'
 import { Optional } from '../../core/types/optional'
 
-type AnswerProps = {
+export type AnswerProps = {
   context: string
   authorId: string
   questionId: string
@@ -10,6 +10,10 @@ type AnswerProps = {
 }
 
 export class Answer extends Entity<AnswerProps> {
+  get authorId() {
+    return this.props.authorId
+  }
+
   static create(props: Optional<AnswerProps, 'createdAt'>, id?: string) {
     const answer = new Answer(
       {
