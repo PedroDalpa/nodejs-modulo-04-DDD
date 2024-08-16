@@ -2,7 +2,7 @@ import { Entity } from '../../core/entities/base'
 import { Optional } from '../../core/types/optional'
 
 export type AnswerProps = {
-  context: string
+  content: string
   authorId: string
   questionId: string
   createdAt: Date

@@ -6,7 +6,7 @@ export type QuestionProps = {
   authorId: string
   bestAnswerId?: string
   title: string
-  context: string
+  content: string
   slug: Slug
   createdAt: Date
   updatedAt?: Date

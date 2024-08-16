@@ -4,15 +4,15 @@ import { AnswerRepositoryInterface } from '../interfaces/repositories/answers-re
 type AnswerQuestionProps = {
   instructorId: string
   questionId: string
-  context: string
+  content: string
 }
 
 export class AnswerQuestionUseCase {
   constructor(private answerRepository: AnswerRepositoryInterface) {}
-  async execute({ context, instructorId, questionId }: AnswerQuestionProps) {
+  async execute({ content, instructorId, questionId }: AnswerQuestionProps) {
     const answer = Answer.create({
       authorId: instructorId,
-      context,
+      content,
       questionId,
     })
 

@@ -5,7 +5,7 @@ export function makeAnswer(override: Partial<AnswerProps> = {}, id?: string) {
   const answer = Answer.create(
     {
       authorId: randomUUID(),
-      context: 'Example',
+      content: 'Example',
       questionId: randomUUID(),
       ...override,
     },

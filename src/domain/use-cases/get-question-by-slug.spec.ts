@@ -33,7 +33,7 @@ describe('Get question by slug use case', () => {
   it('should not be able to return slug by invalid slug', async () => {
     const questionToCreate = Question.create({
       authorId: '134',
-      context: 'test context',
+      content: 'test content',
       slug: Slug.createFromText('Example question title'),
       title: 'Example question title',
     })

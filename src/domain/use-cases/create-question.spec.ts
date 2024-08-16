@@ -15,7 +15,7 @@ describe('Create question use case', () => {
   it('should be able to create a question', async () => {
     const { question } = await createQuestionUseCase.execute({
       authorId: 'test-author-id',
-      context: 'test context',
+      content: 'test content',
       title: 'Test title',
     })
 

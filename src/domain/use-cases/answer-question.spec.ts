@@ -17,13 +17,13 @@ describe('Answer question use case', () => {
   it('should be able create answer to a question', async () => {
     const question = Question.create({
       authorId: randomUUID(),
-      context: faker.lorem.paragraph(),
+      content: faker.lorem.paragraph(),
       slug: new Slug('example title'),
       title: faker.lorem.words(),
     })
 
     const { answer } = await answerQuestionUseCase.execute({
-      context: faker.lorem.paragraph(),
+      content: faker.lorem.paragraph(),
       questionId: question.id,
       instructorId: randomUUID(),
     })
