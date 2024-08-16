@@ -22,4 +22,10 @@ export class InMemoryQuestionRepository implements QuestionRepositoryInterface {
 
     this.questions.splice(index, 1)
   }
+
+  async update(question: Question): Promise<void> {
+    const index = this.questions.findIndex((item) => item.id === question.id)
+
+    this.questions[index] = question
+  }
 }
